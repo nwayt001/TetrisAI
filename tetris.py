@@ -350,8 +350,9 @@ class TetrisEnv(gym.Env):
             self.init_game()
             self.gameover = False
 
-    def reset(self):
+    def reset(self, episode = 1):
         self.init_game()
+        self.level = episode
         self.gameover = False
         self.draw()
 

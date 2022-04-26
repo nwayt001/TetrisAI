@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
 Created on Fri Mar  3 17:47:20 2017
@@ -6,13 +6,13 @@ Created on Fri Mar  3 17:47:20 2017
 @author: nicholas
 """
 
-from rl.input_methods import SimpleJoystick, SimpleKeyboard
+from input_methods import SimpleKeyboard
 import threading
-from ConfigParser import SafeConfigParser
+from configparser import SafeConfigParser
 
 
 class HumanInput(object):
-    def __init__(self,game, default_action = 0, input_method = 'joystick', input_mode = 'TAMER'):
+    def __init__(self,game, default_action = 0, input_method = 'keyboard', input_mode = 'TAMER'):
         
         self.inputMethod = input_method
         self.game = game
@@ -22,27 +22,15 @@ class HumanInput(object):
         # input_mode: TAMER or playable
         self.input_mode = input_mode
         
-        if(self.inputMethod == 'joystick'):
-        
-            # create instance of joystick class
-            self.joyStick = SimpleJoystick.SimpleJoystick()
-        
-            # start polling thread for joystick
-            self.js_thread = threading.Thread(target = self.joyStick.poll)
-            self.js_thread.start()
-        
-            self.loadActionSpace_controller()
-            
-        elif(self.inputMethod == 'keyboard'):
-            # create keyboard and start polling for keypresses
-            self.keyboard = SimpleKeyboard.SimpleKeyboard()
-            self.loadActionSpace_keyboard()
+        # create keyboard and start polling for keypresses
+        self.keyboard = SimpleKeyboard.SimpleKeyboard()
+        self.loadActionSpace_keyboard()
         
         
     def loadActionSpace_controller(self):
         # load in game specific control configuration
         cf_parser= SafeConfigParser()
-        cf_parser.read('../rl/input_methods/ConfigHumanAgent.ini')
+        cf_parser.read('input_methods/ConfigHumanAgent.ini')
         game = self.game.split('-')[0]
         self.action_space=dict()
         self.action_space['lx_left'] = cf_parser.getint(game,'lx_left')
@@ -75,7 +63,7 @@ class HumanInput(object):
         # load in generic keyboard configuration for controlling games and 
         # providing tamer reward
         cf_parser = SafeConfigParser()
-        cf_parser.read('../rl/input_methods/ConfigHumanAgent.ini')
+        cf_parser.read('input_methods/ConfigHumanAgent.ini')
         if self.input_mode == 'TAMER':
             game = 'Generic'
         else:
