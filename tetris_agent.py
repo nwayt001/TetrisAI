@@ -202,8 +202,8 @@ class Super_Vanilla_TAMERAgent(TetrisAgent):
         # exit
         exit(0)
             
-    def fit(self, nb_steps=100000, callbacks = None, verbose = 4, visualize = True, 
-            training = True, model_file_name = 'Vanilla_Tetris-v0-100-lines.hf5', max_episode_steps = 5000):
+    def fit(self, nb_steps=1000000, callbacks = None, verbose = 4, visualize = True, 
+            training = True, model_file_name = 'Vanilla_Tetris-v0-100-lines.hf5', max_episode_steps = 50000):
 
         if not training:
             # load pre-trained model weights        
