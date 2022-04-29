@@ -1,5 +1,4 @@
 import argparse
-import torch as th
 import numpy as np
 from tetris import TetrisEnv
 from tetris_agent import Super_Vanilla_TAMERAgent

@@ -16,6 +16,7 @@ from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras import models
 from input_methods import HumanInput
+from tetris import TetrisEnv
 
 class TetrisAgent(object):
     def __init__(self, env, input_method = 'keyboard', nb_state_frames = 1, save_file_name = 'tamer',
@@ -24,7 +25,7 @@ class TetrisAgent(object):
         self.env = env
         self.input_method = input_method
         self.nb_state_frames = nb_state_frames    
-        self.tempState = gym.make('Tetris-v0')
+        self.tempState = TetrisEnv()
         self.worldState = []
         self.step = 0
         self.processor = processor
