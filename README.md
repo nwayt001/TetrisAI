@@ -33,4 +33,4 @@ Activate the new environment and install dependencies:
 
 ``python3 train_agent.py```
 
-use up and down arrows on keyboard to provide positive and negative feedback for each tetris move.
+Press the up and down arrows on keyboard to provide positive and negative feedback for each tetris move.
