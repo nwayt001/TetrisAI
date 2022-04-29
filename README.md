@@ -1,6 +1,8 @@
 # Tetris AI using TAMER
 Training AI agents to play tetris using a human-guided machine learning (HGML) technique called TAMER (Teaching Agents Manually through Evaluative Reinforcement)
 
+<center><img src="docs/Screenshot.png" alt="Tetris AI screenshot." width="640"/></center>
+
 ## Installation
 
 
