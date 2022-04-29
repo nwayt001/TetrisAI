@@ -31,6 +31,6 @@ Activate the new environment and install dependencies:
 
 ## Training TAMER agent to play tetris
 
-``python3 train_agent.py```
+```python3 train_agent.py```
 
 Press the up and down arrows on keyboard to provide positive and negative feedback for each tetris move.
